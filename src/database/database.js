@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const config = require('../config/config.json');
 
-mongoose.connect("mongodb://localhost:27017/eprintEsign",{
+mongoose.connect(config.urlDatabase,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
