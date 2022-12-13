@@ -28,5 +28,5 @@ const getWebData = async (code) =>{
 module.exports = {
     createMobileData,
     createWebData,
-    getWebData
+    getWebData,
 }

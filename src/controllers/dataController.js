@@ -61,8 +61,6 @@ const getWebData = async (req, res) => {
   res.send({ status: "OK", data: data });
 };
 
-
-
 module.exports = {
   createMobileData,
   createWebData,
