@@ -1,3 +1,4 @@
 {
-    "urlDatabase":"mongodb://localhost:27017/eprintEsign"
+    "urlDatabaseDev":"mongodb://localhost:27017/eprintEsign",
+    "urlDatabaseProd":"mongodb+srv://admin:nAsXBDgyPL0KGpJH@cluster0.a2w3m.mongodb.net/ePrint"
 }

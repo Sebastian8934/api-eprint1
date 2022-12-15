@@ -3,8 +3,6 @@ const { encrypt, compare } = require('../helpers/handleBcrypt');
 const { tokenSign } = require('../helpers/generateToken');
 const  userService  = require("../services/userService");
 
-const userModel = require('../models/userModel')
-
 //TODO: Login!
 const login = async (req, res) => {
     try {
