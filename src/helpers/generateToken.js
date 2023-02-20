@@ -8,7 +8,7 @@ const tokenSign = async (user) => { //TODO: Genera Token
         }, //TODO: Payload ! Carga útil
         process.env.JWT_SECRET || '123456', //TODO ENV 'secretkey'
         {
-            expiresIn: "1h", //TODO tiempo de vida
+            expiresIn: "45m", //TODO tiempo de vida
         }
     );
 }

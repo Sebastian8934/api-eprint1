@@ -1,5 +1,5 @@
 const { httpError } = require('../helpers/handleError');
-const { encrypt, compare } = require('../helpers/handleBcrypt');
+const { encrypt, compare, cryptrP} = require('../helpers/handleBcrypt');
 const { tokenSign } = require('../helpers/generateToken');
 const  userService  = require("../services/userService");
 
@@ -40,17 +40,18 @@ const login = async (req, res) => {
 
 const createWebUser = async (req, res) => {
     try {
-        const { user, password } = req.body;
+        const { user,cedula,nombre,apellido,telefono,password,claveFirmaDigital,usuarioCertificadoDigital } = req.body;
         const users = await userService.userExisting(user);
 
         if(users){
             console.log("usuario ya creado");
-            res.send({ error: 'usuario ya creado' })
+            res.send({ status: "FAILED" , data:"usuario ya creado" })
             return;
         }
 
+        const cryptrPs = await cryptrP(claveFirmaDigital);
         const passwordHash = await encrypt(password)
-        const registerUser = await userService.createWebUser(user, passwordHash);
+        const registerUser = await userService.createWebUser(user,cedula,nombre,apellido,telefono,passwordHash,cryptrPs,usuarioCertificadoDigital);
         res.send({ status: "OK", data: registerUser });
 
     } catch (e) {

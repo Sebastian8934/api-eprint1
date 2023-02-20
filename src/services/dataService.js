@@ -4,8 +4,8 @@ const Data = require('../models/dataModel');
 
 const createWebData = async (newWebData) =>{
     /**INSERT TO DATABASE WEB DATA*/
-    const { code, nameSignerOne, dniSignerOne } = newWebData;    
-    const newData = new Data({ code, nameSignerOne, dniSignerOne });
+    const {   code, nameSignerOne, dniSignerOne  } = newWebData;    
+    const newData = new Data({ code, nameSignerOne, dniSignerOne  });
     const dataSaved = await newData.save();
     return dataSaved;
 };

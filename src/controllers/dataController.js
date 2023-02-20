@@ -17,7 +17,7 @@ const createWebData = async (req, res) => {
     const newWebData = {
       code: body.code,
       nameSignerOne: body.nameSignerOne,
-      dniSignerOne: body.dniSignerOne,
+      dniSignerOne: body.dniSignerOne
     };
 
     const webData = await dataService.createWebData(newWebData);
@@ -34,11 +34,11 @@ const createMobileData = async (req, res) => {
   const id = req.params.code;
 
   if (
-    !body.mobileData.signTwo ||
-    !body.mobileData.personalDataPolicy ||
+    //!body.mobileData.signTwo ||
+    //!body.mobileData.personalDataPolicy ||
     !body.mobileData.nameSignerTwo ||
-    !body.mobileData.dniSignerTwo ||
-    !body.mobileData.pictureSignerTwo
+    !body.mobileData.dniSignerTwo 
+    //!body.mobileData.pictureSignerTwo
   ) {
     return;
   }

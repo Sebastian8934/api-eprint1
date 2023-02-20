@@ -1,7 +1,16 @@
 const userModel = require('../models/userModel');
 
-const createWebUser = async (user,passwordHash) =>{
-    const data = await userModel.create({user:user,password:passwordHash});
+const createWebUser = async (user,cedula,nombre,apellido,telefono,passwordHash,claveFirmaDigital,usuarioCertificadoDigital) =>{
+    const data = await userModel.create({
+        user:user,
+        cedula:cedula,
+        nombre:nombre,
+        apellido:apellido,
+        telefono:telefono,
+        password:passwordHash,
+        claveFirmaDigital:claveFirmaDigital,
+        usuarioCertificadoDigital:usuarioCertificadoDigital
+    });
     return data;
 }
 

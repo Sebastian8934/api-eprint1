@@ -26,19 +26,10 @@ const validatorCreateWebData = [
 ]
 
 const validatorCreateMobileData = [
-    check("mobileData.signTwo")
-    .exists()
-    .notEmpty(),
     check("mobileData.nameSignerTwo")
     .exists()
     .notEmpty(),
     check("mobileData.dniSignerTwo")
-    .exists()
-    .notEmpty(),
-    check("mobileData.pictureSignerTwo")
-    .exists()
-    .notEmpty(),
-    check("mobileData.personalDataPolicy")
     .exists()
     .notEmpty(),
     (req , res , next ) => {

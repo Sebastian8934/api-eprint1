@@ -2,35 +2,25 @@ const logService = require("../services/logServices");
 
 const createLog = async (req, res) => {
     const { body } = req;
-    console.log(body);
-  
-    if (
-      !body.code ||
-      !body.signStatus ||
-      !body.pdfGenerateStatus ||
-      !body.nameSignerOne ||
-      !body.dniSignerOne ||
-      !body.pictureSignerOne ||
-      !body.nameSignerTwo ||
-      !body.dniSignerTwo ||
-      !body.personalDataPolicy
-    ) {
-      return;
-    }
-  
-    const createLog = await dataService.createLog(body);
+    const createLog = await logService.createLog(body);
     res.send({ status: "OK", data: createLog });
-  };
+};
 
-const getLog = async ( ) => {
-    const logId = req.params.log;
+const updateLog = async (req, res) => {
+  const { params,body } = req;
+  const updateLog = await logService.updateLog(params.dniSignerOne,body);
+  res.send({ status: "OK", data: updateLog });
+};
 
-    const data = await logService.getWebData(logId);
+const getLog = async (req,res) => {
+    const dniSignerOne = req.params.dniSignerOne;
+    const data = await logService.getWebData(dniSignerOne);
     res.send({ status: "OK", data: data });   
 }
 
 module.exports = {
+    getLog,
     createLog,
-    getLog
-  };
+    updateLog
+};
   

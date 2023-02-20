@@ -4,7 +4,13 @@ var Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     user: String,
-    password: String
+    usuarioCertificadoDigital:String,
+    cedula:Number,
+    nombre:String,
+    apellido:String,
+    telefono:Number,
+    password: String,
+    claveFirmaDigital:String
 },{
     timestamps: true,
     versionKey: false

@@ -6,15 +6,16 @@ const dataSchema = new Schema({
     code: String,
     nameSignerOne: String,
     dniSignerOne: Number,
-    signStatusSingnerOne: Boolean,
-    //pictureSignerOne: String,
-    //pdfGenerateStatus: Boolean,    
+    pictureSignerOne: String,
+    emailSignerOne: String,
+    phoneSignerOne:String,
     mobileData:{
         signTwo: String,
         nameSignerTwo: String,
         dniSignerTwo: Number,
         pictureSignerTwo: String,
-        personalDataPolicy: Boolean
+        emailSignerTwo: String,
+        phoneSignerTwo:String
     }
 },{
     timestamps: true,

@@ -14,7 +14,8 @@ mongoose.set('strictQuery', false);
 const express = require("express");
 const v1DataRouter = require('./v1/routes/dataRoutes');
 const v1UserRouter = require('./v1/routes/userRoutes');
-const database = require('./database/database')
+const v1LogRouter = require('./v1/routes/logsRoutes');
+const database = require('./database/database');
 
 const app = express(); 
 const PORT = process.env.PORT || 3000; 
@@ -27,6 +28,7 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.json());
 app.use('/api/v1/',v1DataRouter);
 app.use('/api/v1/user/',v1UserRouter);
+app.use('/api/v1/log/',v1LogRouter);
 
 // For testing purposes 
 /*app.get("/", (req, res) => { 

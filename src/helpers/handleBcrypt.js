@@ -1,4 +1,6 @@
 const bcrypt = require('bcryptjs') //TODO: <--- 😎
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr('myTotallySecretKey');
 
 //TODO: Encriptamos!!
 const encrypt = async (textPlain) => { //TODO: 123456
@@ -11,4 +13,9 @@ const compare = async (passwordPlain, hashPassword) => {
     return await bcrypt.compare(passwordPlain, hashPassword)
 }
 
-module.exports = { encrypt, compare }
+//TODO: Comparamos!!
+const cryptrP = async (cryptrPassword) => {
+    return cryptr.encrypt(cryptrPassword);
+}
+
+module.exports = { encrypt, compare, cryptrP }
