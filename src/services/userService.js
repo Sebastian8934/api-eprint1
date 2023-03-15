@@ -1,6 +1,6 @@
 const userModel = require('../models/userModel');
 
-const createWebUser = async (user,cedula,nombre,apellido,telefono,passwordHash,claveFirmaDigital,usuarioCertificadoDigital) =>{
+const createWebUser = async (user,cedula,nombre,apellido,telefono,passwordHash,claveFirmaDigital,usuarioCertificadoDigital,role) =>{
     const data = await userModel.create({
         user:user,
         cedula:cedula,
@@ -9,17 +9,20 @@ const createWebUser = async (user,cedula,nombre,apellido,telefono,passwordHash,c
         telefono:telefono,
         password:passwordHash,
         claveFirmaDigital:claveFirmaDigital,
-        usuarioCertificadoDigital:usuarioCertificadoDigital
+        usuarioCertificadoDigital:usuarioCertificadoDigital,
+        role:role
     });
     return data;
 }
 
-const userExisting = async (user) =>{
-    const data = await userModel.findOne({ user })
-    return data;
+const userExisting = async (user,cedula) =>{
+    const userData = await userModel.findOne({user:user});
+    const cedulaData = await userModel.findOne({cedula:cedula});
+    if( userData !== null || cedulaData !== null ){
+        return true;
+    } else {
+       return false;
+    }
 }
 
-module.exports = {
-    createWebUser,
-    userExisting
-}
+module.exports = { createWebUser, userExisting }

@@ -1,11 +1,10 @@
 /*DATABASE IMPORT SCHEMA*/
 const Data = require('../models/dataModel');
 
-
 const createWebData = async (newWebData) =>{
     /**INSERT TO DATABASE WEB DATA*/
-    const {   code, nameSignerOne, dniSignerOne  } = newWebData;    
-    const newData = new Data({ code, nameSignerOne, dniSignerOne  });
+    const {   code, nameSignerOne, dniSignerOne , pdfSigner  } = newWebData;    
+    const newData = new Data({ code, nameSignerOne, dniSignerOne , pdfSigner  });
     const dataSaved = await newData.save();
     return dataSaved;
 };

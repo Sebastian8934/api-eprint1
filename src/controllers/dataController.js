@@ -4,7 +4,7 @@ const createWebData = async (req, res) => {
   const { body } = req;
 
   try {
-    if (!body.code || !body.nameSignerOne || !body.dniSignerOne) {
+    if (!body.code || !body.nameSignerOne || !body.dniSignerOne || !body.pdfSigner) {
         res.status(400).send({
             status: "FAILED",
             data: {
@@ -17,7 +17,8 @@ const createWebData = async (req, res) => {
     const newWebData = {
       code: body.code,
       nameSignerOne: body.nameSignerOne,
-      dniSignerOne: body.dniSignerOne
+      dniSignerOne: body.dniSignerOne,
+      pdfSigner: body.pdfSigner
     };
 
     const webData = await dataService.createWebData(newWebData);

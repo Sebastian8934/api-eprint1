@@ -3,15 +3,14 @@ const { check, validationResult } = require("express-validator");
 const validatorCreateWebData = [
     check("code")
     .exists()
-    .notEmpty()
-    /* .isMongoId() */,
+    .notEmpty(),
     check("nameSignerOne")
     .exists()
     .notEmpty(),
     check("dniSignerOne")
     .exists()
     .notEmpty(),
-    check("signStatusSingnerOne")
+    check("pdfSigner")
     .exists()
     .notEmpty(),
     (req , res , next ) => {
@@ -43,4 +42,4 @@ const validatorCreateMobileData = [
     }
 ]
 
-module.exports = { validatorCreateWebData,validatorCreateMobileData };
+module.exports = { validatorCreateWebData, validatorCreateMobileData };

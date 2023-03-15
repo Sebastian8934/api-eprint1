@@ -4,8 +4,9 @@ var Schema = mongoose.Schema;
 
 const dataSchema = new Schema({
     code: String,
-    nameSignerOne: String,
     dniSignerOne: Number,
+    nameSignerOne: String,
+    pdfSigner:String,
     pictureSignerOne: String,
     emailSignerOne: String,
     phoneSignerOne:String,

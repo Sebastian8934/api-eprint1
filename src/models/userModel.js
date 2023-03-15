@@ -10,7 +10,11 @@ const userSchema = new Schema({
     apellido:String,
     telefono:Number,
     password: String,
-    claveFirmaDigital:String
+    claveFirmaDigital:String,
+    role:[{
+        ref:"role",
+        type:Schema.Types.ObjectId
+    }]
 },{
     timestamps: true,
     versionKey: false
