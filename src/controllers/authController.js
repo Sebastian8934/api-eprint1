@@ -17,7 +17,7 @@ const login = async (req, res) => {
         }
 
         const checkPassword = await compare(password, dataUser.password) //TODO: Contraseña!
-
+   
         //TODO JWT 👉
         const tokenSession = await tokenSign(dataUser) //TODO: 2d2d2d2d2d2d2
         

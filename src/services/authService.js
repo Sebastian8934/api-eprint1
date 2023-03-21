@@ -1,9 +1,9 @@
 const userModel = require('../models/userModel');
+// const rolModel = require('../models/rolesModel');
 
 const userExisting = async (user) =>{
-    const dataUser = await userModel.findOne({ user })
-    const data = await userModel.findOne({ role:dataUser.role }).populate("role");
-    return data;
+    const users = await userModel.findOne({user:user}).populate('role');
+    return users ;
 }
 
 module.exports = { userExisting }
