@@ -14,7 +14,8 @@ const userSchema = new Schema({
     role:[{
         ref:"role",
         type:Schema.Types.ObjectId
-    }]
+    }],
+    imgFirma:String
 },{
     timestamps: true,
     versionKey: false
